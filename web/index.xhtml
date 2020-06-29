@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Place Order</title>
+        <style>
+            body{
+                background:#59ABE3;margin:0;
+                font-family:'Segoe UI',sans-serif;
+            }
+            .formulario{
+                width:550px;height:950px;
+                background:#e6e6e6;
+                border-radius:8px;
+                box-shadow:0 0 40px -10px #000;
+                margin:calc(50vh - 220px) auto;
+                padding:20px 30px;
+                max-width:calc(100vw - 40px);
+                box-sizing:border-box;
+                font-family:'Segoe UI',sans-serif;
+                position:relative;
+                margin-top: 0px;
+                margin-bottom: 0;
+                background-color: appworkspace;
+            }
+            .encabezado{
+                margin-top: 0px;
+                margin-bottom: 2px;
+            }
+            .input{
+                width:100%;
+                padding:10px;box-sizing:border-box;
+                padding-top: 0;
+                background:none;
+                outline:none;
+                resize:none;
+                border:0;
+                font-family:'Segoe UI',sans-serif;transition:all .3s;
+                border-bottom:2px solid darkgoldenrod;
+            }
+            .panel{
+                border: solid 2px darkorange; 
+                margin-top: 3px;
+                padding-top: 0;
+                width: 460px;
+            }
+            .hr1{
+               position: relative;
+               border: solid 1px black;
+               top: 56px;
+               margin-top: 0;
+               margin-bottom: 0;
+               border-color: darkgoldenrod;
+            }
+            .hr2{
+               position: relative;
+               border: solid 1px black;
+               top: 107px;
+               margin-top: 0;
+               margin-bottom: 0;
+               border-color: darkgoldenrod;
+            }
+            .hr3{
+               position: relative;
+               border: solid 1px black;
+               top: 153px;
+               margin-top: 0;
+               margin-bottom: 0;
+               border-color: darkgoldenrod;
+            }
+             .hr4{
+               position: relative;
+               border: solid 1px black;
+               top: 204px;
+               margin-top: 0;
+               margin-bottom: 0;
+               border-color: darkgoldenrod;
+            }
+        </style>
+    </h:head>
+    <h:body class="bodyF">
+
+        <h:form class="formulario">
+            <h:panelGroup>
+                <h2 class="encabezado">Dado Tea Lunch Special</h2>
+                <h:outputLabel for="input" value="Monday through Friday"/><br></br>
+                <h:outputLabel for="input" value="11am - 3pm"/><br></br>
+                <h:outputLabel for="input" value="$9.95 plus tax"/><br></br>
+                <h:outputLabel for="input" value="Include sandwich, snack and drink"/>
+            </h:panelGroup>
+            <fieldset class="panel">
+                <legend style="font-size: 30px; color: orange">Order information</legend>
+                <h:panelGroup>
+                    <h:outputLabel style="margin-top: 0;" for="input" value="Name"/><br></br>
+                    <h:inputText id="name" value="#{beanPedido.name}" class="input" required="True"></h:inputText>
+                    <h:selectOneRadio value="#{beanPedido.orderType}" layout="pageDirection" border="0">
+                        <f:selectItem itemValue="Here" itemLabel="Here"/>
+                        <f:selectItem itemValue="To Go" itemLabel="To Go"/>
+                    </h:selectOneRadio>
+                </h:panelGroup>
+            </fieldset>
+            
+            <!--Sandwich-->
+            <fieldset class="panel">
+                <legend style="font-size: 30px; color: orange">Sandwiches</legend>
+
+                <h:panelGroup>
+                  <hr class="hr1"></hr>
+                  <hr class="hr2"></hr>
+                  <hr class="hr3"></hr>
+                  <hr class="hr4"></hr>
+                    <div style="float: left;">
+                        <div style="margin-bottom: 11px; font: bold;"><h:outputLabel for="input" value="Monday"/></div><br></br>
+                        <div style="margin-bottom: 7px"><h:outputLabel for="input" value="Tuesday"/></div><br></br>
+                        <div style="margin-bottom: 9px"><h:outputLabel for="input" value="Wednesday"/></div><br></br>
+                        <div style="margin-bottom: 5px"><h:outputLabel for="input" value="Thursday"/></div><br></br>
+                        <div style="margin-bottom: 4px"><h:outputLabel for="input" value="Friday"/></div><br></br>
+                        
+                    </div>
+                    <div>
+                          <!--Monday-->
+                        <h:selectOneRadio value="#{beanPedido.sandwichDay}" layout="pageDirection" border="0" required="True">
+                            <f:selectItem itemValue="Tomato Mozzarella" itemLabel="Tomato Mozzarella"/>
+                            <f:selectItem itemValue="Chiken Salad" itemLabel="Chiken Salad"/>
+                            
+                            <!--Tuesday-->
+                            <f:selectItem itemValue="Greek Salada Wrap" itemLabel="Greek Salada Wrap"/>
+                            <f:selectItem itemValue="Toto Wrap" itemLabel="Toto Wrap"/>
+
+                            <!--Wednesday-->
+                            <f:selectItem itemValue="Red Pepper Hummus" itemLabel="Red Pepper Hummus"/>
+                            <f:selectItem itemValue="Roasted Turkey" itemLabel="Roasted Turkey"/>
+
+                            <!--Thursday-->
+                            <f:selectItem itemValue="Carrot-Ginger Hummus Wrap" itemLabel="Carrot-Ginger Hummus Wrap"/>
+                            <f:selectItem itemValue="Egg Salad" itemLabel="Egg Salad"/>
+
+                            <!--Friday-->
+                            <f:selectItem itemValue="Dado Wrap" itemLabel="Dado Wrap"/>
+                            <f:selectItem itemValue="Tuna Salad" itemLabel="Tuna Salad"/>
+                        </h:selectOneRadio>
+                    </div>
+                    <h:selectBooleanCheckbox value="#{beanPedido.freeGluten}"></h:selectBooleanCheckbox>Gluten Free Bread (75c extra)
+                </h:panelGroup>
+            </fieldset>
+            
+            <!--Snack-->
+            <fieldset class="panel">
+                <legend style="font-size: 30px; color: orange">Snack</legend>
+
+
+                <h:panelGroup>
+                    <h:outputLabel for="input" value="Snacks"/><br></br>
+                    <h:selectOneRadio value="#{beanPedido.snack}" layout="pageDirection" border="0" required="True">
+                        <f:selectItem itemValue="Apple" itemLabel="Apple"/>
+                        <f:selectItem itemValue="Banana" itemLabel="Banana"/>
+                        <f:selectItem itemValue="Potato Chips" itemLabel="Potato Chips"/>
+                    </h:selectOneRadio>
+                </h:panelGroup>
+
+            </fieldset>
+            
+            <!--Drinks-->
+            <fieldset class="panel">
+                <legend style="font-size: 30px; color: orange">Drink</legend>
+
+
+                <h:panelGroup>
+                    <h:selectOneMenu value="#{beanPedido.drink}" required="True">
+                        <f:selectItem itemValue="Black Tea" itemLabel="Black Tea" itemDisabled="True" class="aqui"/>
+                        <f:selectItem itemValue="Hot Black Tea - Keemun" itemLabel="Hot Black Tea - Keemun"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Hot Black Tea - Decaf Keemun"/>
+                        <f:selectItem itemValue="Iced Black Tea - Keemun" itemLabel="Iced Black Tea - Keemun"/>
+                        <f:selectItem itemValue="Iced Black Tea - Decaf Keemun" itemLabel="Iced Black Tea - Decaf Keemun"/>
+
+                        <f:selectItem itemValue="Green Tea" itemLabel="Green Tea" itemDisabled="True"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Hot Green Tea - Sencha"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Hot Green Tea - Decaf"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Iced Green Tea - Sencha"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Iced Green Tea - Decaf"/>
+
+                        <f:selectItem itemValue="Coffee" itemLabel="Coffee" itemDisabled="True"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Hot Coffee"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Hot Decaf Coffee"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Iced Coffee"/>
+                        <f:selectItem itemValue="Hot Black Tea - Decaf Keemun" itemLabel="Iced Decaf Coffee"/>
+
+                        <f:selectItem itemValue="Bubble Tea($1.50 extra)" itemLabel="Bubble Tea($1.50 extra)" itemDisabled="True"/>
+                        <f:selectItem itemValue="Bubble Tea" itemLabel="Bubble Tea"/>
+                    </h:selectOneMenu>
+                    <br></br>
+                    <h:selectBooleanCheckbox value="#{beanPedido.largeDrink}"></h:selectBooleanCheckbox>Large Drink (75c extra)
+                </h:panelGroup>
+
+            </fieldset>
+
+
+
+
+            <h:commandButton value="Place Order" action="#{beanPedido.RealizarPedido}"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+<!--Index xhtml*************************************************************************************************************************-->

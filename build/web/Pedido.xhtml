@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Place Order Information</title>
+        <style>
+            body{
+                background:#59ABE3;
+                margin:20px;
+                font-family:'Segoe UI',sans-serif;
+            }
+            .formulario{
+                width:550px;height:650px;
+                border-radius:8px;
+                box-shadow:0 0 40px -10px #000;
+                margin:calc(50vh - 220px) auto;
+                padding:20px 30px;
+                max-width:calc(100vw - 40px);
+                box-sizing:border-box;
+                font-family:'Segoe UI',sans-serif;
+                position:relative;
+                margin-top: 0px;
+                padding-top: 0;
+                background-color:  appworkspace;
+            }
+           
+        </style>
+    </h:head>
+    <h:body>
+        <div class="formulario">
+            <h1 align="center" style="margin-top: 0; margin-bottom: 0">Place order</h1>
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Customer name</h3>
+                <h:outputLabel value="#{beanPedido.name}"></h:outputLabel>
+            </div>
+
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Order Type</h3>
+                <h:outputLabel value="#{beanPedido.orderType}"></h:outputLabel>
+            </div>
+
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Sandwich</h3>
+                <h:outputLabel value="#{beanPedido.sandwichDay}"></h:outputLabel>
+            </div>
+
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Snack</h3>
+                <h:outputLabel value="#{beanPedido.snack}"></h:outputLabel>
+            </div>
+
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Drink</h3>
+                <h:outputLabel value="#{beanPedido.drink}"></h:outputLabel>
+            </div>
+
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Order total</h3>
+                <h:outputLabel value="$#{beanPedido.total}"></h:outputLabel>
+            </div>
+
+            <div style="border: solid 1px darkcyan; margin: 3px; padding: 5px; font: bold">
+                <h3 style="margin-top: 0">Extra order</h3>
+                <h:outputLabel value="#{beanPedido.largeDrinkOrder}"></h:outputLabel><br></br>
+                <h:outputLabel value="#{beanPedido.freeGlutenOrder}"></h:outputLabel>
+            </div>
+        </div>
+    </h:body>
+</html>
+<!--html*************************************************************************************************************************-->
